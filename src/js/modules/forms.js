@@ -3,8 +3,6 @@ const forms = () => {
   const inputs = document.querySelectorAll("input");
   const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
 
-  console.log("ajajja");
-
   phoneInputs.forEach((item) => {
     item.addEventListener("input", function (e) {
       item.value = item.value.replace(/\D/, "");
