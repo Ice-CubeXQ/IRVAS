@@ -18,6 +18,18 @@ body {
   color: red;
 }
 
+.faded{
+  animation: faded 1.5s;
+}
+@keyframes faded {
+  from {
+    opacity: 0.1;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -838,6 +850,15 @@ textarea:focus {
   height: 100%;
   z-index: 9;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup img{
+  max-width: 100%; 
+  max-height: 100%; 
+  width: auto; 
+  height: auto; 
+  display: block; 
+  
 }
 
 .myimage {

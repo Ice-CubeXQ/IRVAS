@@ -16,7 +16,7 @@ const modals = () => {
         });
 
         modal.style.display = "block";
-        document.body.classList.add("modal-open");
+        document.body.style.overflow = "hidden";
       });
     });
 
@@ -26,7 +26,7 @@ const modals = () => {
       });
       if (e.target) {
         modal.style.display = "none";
-        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "auto";
       }
     });
     modal.addEventListener("click", function (e) {
@@ -36,23 +36,23 @@ const modals = () => {
         });
 
         modal.style.display = "none";
-        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "auto";
       }
     });
   }
 
   function showModal(selector, time) {
     setTimeout(() => {
-      const modal = document.querySelector(selector);
+      const modal = document.querySelector(`${selector}[data-modal]`);
       const closeModalButton = document.querySelector(`${selector} .popup_close`);
 
       modal.style.display = "block";
-      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "hidden";
 
       document.addEventListener("click", function (e) {
         if (e.target === modal || e.target === closeModalButton) {
           modal.style.display = "none";
-          document.body.classList.remove("modal-open");
+          document.body.style.overflow = "auto";
         }
       });
     }, time);
@@ -63,7 +63,7 @@ const modals = () => {
   bindModal(".popup_calc_btn", ".popup_calc", ".popup_calc_close");
   bindModal(".popup_calc_button", ".popup_calc_profile", ".popup_calc_profile_close", false);
   bindModal(".popup_calc_profile_button", ".popup_calc_end", ".popup_calc_end_close", false);
-  // showModal(".popup", 60000);
+  showModal(".popup", 1000);
 };
 
 export default modals;
